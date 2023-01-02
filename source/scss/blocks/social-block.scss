@@ -17,6 +17,7 @@
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
+  transition: color 0.3s ease-in-out;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -35,6 +36,7 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
   }
 
   svg {
@@ -89,6 +91,7 @@
   margin-top: 1.5rem;
   opacity: 0;
   pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
 
   @media (min-width: $stop-scaling) {
     margin-top: 15px;
@@ -140,6 +143,34 @@
   .social-block--active & {
     opacity: 1;
     pointer-events: auto;
+
+    .social-block__link {
+      transform: scale(1);
+
+      &--insta {
+        transition-delay: 150ms;
+
+        @media (max-width: $tablet) and (orientation: portrait) {
+          transition-delay: 0ms;
+        }
+
+        @media (max-width: $mobile) and (orientation: landscape) {
+          transition-delay: 0ms;
+        }
+      }
+
+      &--vk {
+        transition-delay: 300ms;
+
+        @media (max-width: $tablet) and (orientation: portrait) {
+          transition-delay: 0ms;
+        }
+
+        @media (max-width: $mobile) and (orientation: landscape) {
+          transition-delay: 0ms;
+        }
+      }
+    }
   }
 
   li {
@@ -168,6 +199,8 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.3s linear;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -177,11 +210,15 @@
   @media (max-width: $tablet) and (orientation: portrait) {
     color: $c-light;
     background-color: $c-dark;
+    transform: scale(1);
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
     color: $c-light;
     background-color: $c-dark;
+    transform: scale(1);
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
   }
 
   &:hover {
