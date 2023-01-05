@@ -63,6 +63,27 @@
       }
     }
   }
+
+  &.swiper-slide-active {
+    .slider__item-text {
+      transition-delay: 400ms;
+    }
+  }
+
+  &.swiper-slide-next {
+    .slider__item-text {
+      transition-delay: 600ms;
+    }
+  }
+
+  .active &.swiper-slide-active,
+  .active &.swiper-slide-next {
+    .slider__item-text {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+    }
+  }
 }
 
 .slider__item-title {
@@ -96,6 +117,10 @@
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(40px);
+  transition: opacity 0.3s linear, transform 0.3s linear;
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
