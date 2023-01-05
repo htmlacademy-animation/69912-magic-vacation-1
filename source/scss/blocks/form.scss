@@ -2,6 +2,28 @@
   position: relative;
   display: flex;
   align-items: center;
+  padding-left: calc(100% - 30rem);
+  transition: padding-left 0.3s ease-in-out;
+
+  @media (min-width: $stop-scaling) {
+    padding-left: calc(100% - 330px);
+  }
+
+  @media (orientation: portrait) {
+    padding-left: calc(100% - 12rem);
+  }
+
+  @media (max-width: $tablet) and (orientation: landscape) {
+    padding-left: calc(100% - 23rem);
+  }
+
+  @media (max-width: $mobile) and (orientation: landscape) {
+    padding-left: calc(100% - 12rem);
+  }
+
+  .active & {
+    padding-left: 0;
+  }
 }
 
 .form__label {
